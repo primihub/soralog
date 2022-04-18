@@ -875,7 +875,7 @@ namespace soralog {
       } else if (level_string == "verbose") {
         level.emplace(Level::VERBOSE);
       } else if (level_string == "debug" || level_string == "deb") {
-        level.emplace(Level::DEBUG);
+        level.emplace(Level::DEBUG0);
         if constexpr (debug_level_disable) {
           errors_ << "W: Level 'trace' in group " << tmp_name
                   << " woun't work: it has disabled with compile option"

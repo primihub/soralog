@@ -22,7 +22,7 @@ namespace soralog {
     WARN,      /// Warning
     INFO,      /// Important information
     VERBOSE,   /// All information
-    DEBUG,     /// Message for debug
+    DEBUG0,     /// Message for debug
     TRACE,     /// Trace event
   };
 
@@ -36,7 +36,7 @@ namespace soralog {
           r[static_cast<uint8_t>(Level::WARN)] = "Warning";
           r[static_cast<uint8_t>(Level::INFO)] = "Info";
           r[static_cast<uint8_t>(Level::VERBOSE)] = "Verbose";
-          r[static_cast<uint8_t>(Level::DEBUG)] = "Debug";
+          r[static_cast<uint8_t>(Level::DEBUG0)] = "Debug";
           r[static_cast<uint8_t>(Level::TRACE)] = "Trace";
           return r;
         }();

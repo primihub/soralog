@@ -86,7 +86,7 @@ namespace soralog {
      */
     template <typename... Args>
     void debug(std::string_view format, const Args &...args) {
-      push(Level::DEBUG, format, args...);
+      push(Level::DEBUG0, format, args...);
     }
 
     /**
@@ -94,7 +94,7 @@ namespace soralog {
      */
     template <typename Arg>
     void debug(const Arg &arg) {
-      push(Level::DEBUG, "{}", arg);
+      push(Level::DEBUG0, "{}", arg);
     }
 
     /**

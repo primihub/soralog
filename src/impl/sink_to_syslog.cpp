@@ -213,7 +213,7 @@ namespace soralog {
           case Level::VERBOSE:  // informational
             priority = LOG_INFO;
             break;
-          case Level::DEBUG:  // debug-level messages
+          case Level::DEBUG0:  // debug-level messages
             priority = LOG_DEBUG;
             break;
           case Level::TRACE:  // trace messages must not be logged by syslog

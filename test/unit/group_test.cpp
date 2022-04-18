@@ -29,7 +29,7 @@ class GroupTest : public ::testing::Test {
       system.makeSink<SinkMock>("sink4");
       system.makeGroup("first", {}, "sink1", Level::TRACE);
       system.makeGroup("second", "first", {}, {});
-      system.makeGroup("third", "second", "sink3", Level::DEBUG);
+      system.makeGroup("third", "second", "sink3", Level::DEBUG0);
       system.makeGroup("four", {}, "sink4", Level::VERBOSE);
       return Configurator::Result{};
     }));
@@ -88,7 +88,7 @@ TEST_F(GroupTest, MakeGroup) {
 
   // If parent is set and properties are provided, then they mark as overridden
   EXPECT_TRUE(group3_->parent() == group2_);
-  EXPECT_TRUE(group3_->level() == Level::DEBUG);
+  EXPECT_TRUE(group3_->level() == Level::DEBUG0);
   EXPECT_TRUE(group3_->isLevelOverridden());
   EXPECT_TRUE(group3_->sink() == sink3_);
   EXPECT_TRUE(group3_->isSinkOverridden());
@@ -162,7 +162,7 @@ TEST_F(GroupTest, ChangeGroup) {
   EXPECT_FALSE(group2_->isSinkOverridden());
 
   EXPECT_TRUE(group3_->parent() == group4_);
-  EXPECT_TRUE(group3_->level() == Level::DEBUG);
+  EXPECT_TRUE(group3_->level() == Level::DEBUG0);
   EXPECT_TRUE(group3_->isLevelOverridden());
   EXPECT_TRUE(group3_->sink() == sink3_);
   EXPECT_TRUE(group3_->isSinkOverridden());
@@ -181,7 +181,7 @@ TEST_F(GroupTest, ChangeGroup) {
   EXPECT_FALSE(group2_->isSinkOverridden());
 
   EXPECT_TRUE(group3_->parent() == nullptr);
-  EXPECT_TRUE(group3_->level() == Level::DEBUG);
+  EXPECT_TRUE(group3_->level() == Level::DEBUG0);
   EXPECT_TRUE(group3_->isLevelOverridden());
   EXPECT_TRUE(group3_->sink() == sink3_);
   EXPECT_TRUE(group3_->isSinkOverridden());

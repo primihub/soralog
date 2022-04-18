@@ -119,7 +119,7 @@ endif()
 
 #ifndef WITHOUT_DEBUG_LOG_LEVEL
 #define SL_DEBUG(LOG, FMT, ...) \
-  _SL_LOG((LOG), soralog::Level::DEBUG, (FMT), ##__VA_ARGS__, Z)
+  _SL_LOG((LOG), soralog::Level::DEBUG0, (FMT), ##__VA_ARGS__, Z)
 #else
 #define SL_DEBUG(LOG, FMT, ...)
 #endif
@@ -152,7 +152,7 @@ endif()
 
 #ifndef WITHOUT_DEBUG_LOG_LEVEL
 #define SL_DEBUG_DF(LOG, FMT, ...) \
-  _SL_LOG_DF((LOG), soralog::Level::DEBUG, (FMT), ##__VA_ARGS__, Z)
+  _SL_LOG_DF((LOG), soralog::Level::DEBUG0, (FMT), ##__VA_ARGS__, Z)
 #else
 #define SL_DEBUG_DF(LOG, FMT, ...)
 #endif

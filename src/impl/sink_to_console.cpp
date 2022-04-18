@@ -43,7 +43,7 @@ namespace soralog {
             fmt::color::orange,        // WARNING
             fmt::color::forest_green,  // INFO
             fmt::color::dark_green,    // VERBOSE
-            fmt::color::medium_blue,   // DEBUG
+            fmt::color::medium_blue,   // DEBUG0
             fmt::color::gray,          // TRACE
         };
 
@@ -86,7 +86,7 @@ namespace soralog {
       assert(level <= Level::TRACE);
       if (level <= Level::ERROR) {
         put_style(ptr, fmt_internal::make_emphasis<char>(fmt::emphasis::bold));
-      } else if (level >= Level::DEBUG) {
+      } else if (level >= Level::DEBUG0) {
         put_style(ptr,
                   fmt_internal::make_emphasis<char>(fmt::emphasis::italic));
       }

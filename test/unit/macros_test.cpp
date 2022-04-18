@@ -48,7 +48,7 @@ TEST_F(MacrosTest, NoArg) {
   EXPECT_TRUE(logger_->last_message == "Trace: no arg");
 
   SL_DEBUG(logger(), "Debug: no arg");
-  EXPECT_TRUE(logger_->last_level == Level::DEBUG);
+  EXPECT_TRUE(logger_->last_level == Level::DEBUG0);
   EXPECT_TRUE(logger_->last_message == "Debug: no arg");
 
   SL_VERBOSE(logger(), "Verbose: no arg");
@@ -78,7 +78,7 @@ TEST_F(MacrosTest, OneArg) {
   EXPECT_TRUE(logger_->last_message == "Trace: one arg: string");
 
   SL_DEBUG(logger(), "Debug: one arg: {}", "string");
-  EXPECT_TRUE(logger_->last_level == Level::DEBUG);
+  EXPECT_TRUE(logger_->last_level == Level::DEBUG0);
   EXPECT_TRUE(logger_->last_message == "Debug: one arg: string");
 
   SL_VERBOSE(logger(), "Verbose: one arg: {}", "string");
@@ -108,7 +108,7 @@ TEST_F(MacrosTest, TwoArg) {
   EXPECT_TRUE(logger_->last_message == "Trace: two args: 1 and 2.3");
 
   SL_DEBUG(logger(), "Debug: two args: {} and {}", 1, 2.3);
-  EXPECT_TRUE(logger_->last_level == Level::DEBUG);
+  EXPECT_TRUE(logger_->last_level == Level::DEBUG0);
   EXPECT_TRUE(logger_->last_message == "Debug: two args: 1 and 2.3");
 
   SL_VERBOSE(logger(), "Verbose: two args: {} and {}", 1, 2.3);
@@ -141,7 +141,7 @@ TEST_F(MacrosTest, TwentyArg) {
 
   SL_DEBUG(logger(), "Debug: twenty args: {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}",
            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20);
-  EXPECT_TRUE(logger_->last_level == Level::DEBUG);
+  EXPECT_TRUE(logger_->last_level == Level::DEBUG0);
   EXPECT_TRUE(logger_->last_message == "Debug: twenty args: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20");
 
   SL_VERBOSE(logger(), "Verbose: twenty args: {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}",
@@ -178,8 +178,8 @@ TEST_F(MacrosTest, CustomLevel) {
   EXPECT_TRUE(logger_->last_level == Level::TRACE);
   EXPECT_TRUE(logger_->last_message == "Custom: trace");
 
-  SL_LOG(logger(), Level::DEBUG, "Custom: {}", "debug");
-  EXPECT_TRUE(logger_->last_level == Level::DEBUG);
+  SL_LOG(logger(), Level::DEBUG0, "Custom: {}", "debug");
+  EXPECT_TRUE(logger_->last_level == Level::DEBUG0);
   EXPECT_TRUE(logger_->last_message == "Custom: debug");
 
   SL_LOG(logger(), Level::VERBOSE, "Custom: {} is {}", "level", "verbose");

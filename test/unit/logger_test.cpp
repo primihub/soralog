@@ -28,7 +28,7 @@ class LoggerTest : public ::testing::Test {
       system.makeSink<SinkMock>("sink3");
       system.makeSink<SinkMock>("sink4");
       system.makeGroup("first", {}, "sink1", Level::TRACE);
-      system.makeGroup("second", {}, "sink2", Level::DEBUG);
+      system.makeGroup("second", {}, "sink2", Level::DEBUG0);
       return Configurator::Result{};
     }));
     EXPECT_CALL(*configurator_, applyOn(_)).Times(1);
@@ -191,13 +191,13 @@ TEST_F(LoggerTest, ChangeGroup) {
   ///  no overridden properties are set from new parent group
 
   EXPECT_TRUE(log1_->group() == group2_);
-  EXPECT_TRUE(log1_->level() == Level::DEBUG);
+  EXPECT_TRUE(log1_->level() == Level::DEBUG0);
   EXPECT_FALSE(log1_->isLevelOverridden());
   EXPECT_TRUE(log1_->sink() == sink2_);
   EXPECT_FALSE(log1_->isSinkOverridden());
 
   EXPECT_TRUE(log2_->group() == group2_);
-  EXPECT_TRUE(log2_->level() == Level::DEBUG);
+  EXPECT_TRUE(log2_->level() == Level::DEBUG0);
   EXPECT_FALSE(log2_->isLevelOverridden());
   EXPECT_TRUE(log2_->sink() == sink3_);
   EXPECT_TRUE(log2_->isSinkOverridden());

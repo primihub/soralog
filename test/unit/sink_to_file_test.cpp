@@ -19,7 +19,7 @@ class SinkToFileTest : public ::testing::Test {
 
     template <typename... Args>
     void debug(std::string_view format, const Args &...args) {
-      sink_->push("logger", Level::DEBUG, format, args...);
+      sink_->push("logger", Level::DEBUG0, format, args...);
     }
 
     void flush() {
