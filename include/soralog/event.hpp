@@ -11,8 +11,8 @@
 #include <cstring>
 #include <string_view>
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include "fmt/format.h"
+#include "fmt/ostream.h"
 
 #include <soralog/level.hpp>
 #include <soralog/sink.hpp>
