@@ -8,6 +8,7 @@
 #include <cassert>
 #include <iostream>
 #include <set>
+#include <functional>
 
 #include <soralog/group.hpp>
 #include <soralog/impl/sink_to_nowhere.hpp>
